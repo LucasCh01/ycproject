@@ -55,6 +55,8 @@ store.on('error', function(e){
     console.log('SESSION STORE ERROR', e)
 })
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const sessionConfig = {
     store,
     name: 'ycsession',
@@ -63,7 +65,7 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        secure: true,
+        secure: isProduction,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
