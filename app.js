@@ -24,8 +24,8 @@ const userRoutes = require('./routes/users')
 const campgroundRoutes = require('./routes/campgrounds')
 const reviewRoutes = require('./routes/reviews')
 
-// const dbUrl = process.env.DB_URL;
-const dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp'
+const dbUrl = process.env.DB_URL;
+// const dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp'
 mongoose.connect(dbUrl)
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, "connection error:"));
@@ -62,7 +62,7 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        //secure: true,
+        secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
