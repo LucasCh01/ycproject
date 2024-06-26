@@ -58,7 +58,7 @@ store.on('error', function(e){
 const sessionConfig = {
     store,
     name: 'ycsession',
-    secret: "thisshouldbeabettersecret",
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
